@@ -36,10 +36,14 @@ export default function Contact() {
   };
 
   return (
-    <SectionWrapper id="contact">
-      <h2 className="mb-12 text-center text-3xl font-bold text-white">
-        Get in Touch
+    <SectionWrapper id="contact" className="section-alt">
+      <h2 className="mb-4 text-center font-[family-name:var(--font-space-grotesk)] text-4xl font-bold text-white">
+        Let&apos;s Connect
       </h2>
+      <p className="mx-auto mb-12 max-w-md text-center text-slate-400">
+        Have a project idea, an internship opportunity, or just want to say hi?
+        Drop me a message.
+      </p>
 
       <form
         ref={formRef}
@@ -51,39 +55,39 @@ export default function Contact() {
           name="from_name"
           required
           placeholder="Your Name"
-          className="rounded-xl border border-white/10 bg-gray-900 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none transition-colors focus:border-indigo-500"
+          className="rounded-xl border border-slate-800 bg-[#0a0f1e] px-4 py-3.5 text-sm text-white placeholder-slate-600 outline-none transition-colors focus:border-cyan-500"
         />
         <input
           type="email"
           name="from_email"
           required
           placeholder="Your Email"
-          className="rounded-xl border border-white/10 bg-gray-900 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none transition-colors focus:border-indigo-500"
+          className="rounded-xl border border-slate-800 bg-[#0a0f1e] px-4 py-3.5 text-sm text-white placeholder-slate-600 outline-none transition-colors focus:border-cyan-500"
         />
         <textarea
           name="message"
           required
           rows={5}
           placeholder="Your Message"
-          className="resize-none rounded-xl border border-white/10 bg-gray-900 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none transition-colors focus:border-indigo-500"
+          className="resize-none rounded-xl border border-slate-800 bg-[#0a0f1e] px-4 py-3.5 text-sm text-white placeholder-slate-600 outline-none transition-colors focus:border-cyan-500"
         />
 
         <button
           type="submit"
           disabled={status === "sending"}
-          className="rounded-full bg-indigo-500 py-3 text-sm font-medium text-white transition-colors hover:bg-indigo-600 disabled:opacity-50"
+          className="rounded-full bg-cyan-500 py-3.5 text-sm font-semibold text-[#0a0f1e] transition-all hover:bg-cyan-400 hover:shadow-lg hover:shadow-cyan-500/25 disabled:opacity-50"
         >
           {status === "sending" ? "Sending..." : "Send Message"}
         </button>
 
         {status === "sent" && (
-          <p className="text-center text-sm text-green-400">
-            Message sent! I&apos;ll get back to you soon.
+          <p className="text-center text-sm text-emerald-400">
+            Message sent — I&apos;ll get back to you soon.
           </p>
         )}
         {status === "error" && (
           <p className="text-center text-sm text-red-400">
-            Something went wrong. Please try again or email me directly.
+            Something went wrong. Please try again or reach out directly.
           </p>
         )}
       </form>

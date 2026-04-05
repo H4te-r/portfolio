@@ -8,8 +8,8 @@ import { FaGithub } from "react-icons/fa";
 
 export default function Projects() {
   return (
-    <SectionWrapper id="projects">
-      <h2 className="mb-12 text-center text-3xl font-bold text-white">
+    <SectionWrapper id="projects" className="section-alt">
+      <h2 className="mb-14 text-center font-[family-name:var(--font-space-grotesk)] text-4xl font-bold text-white">
         Projects
       </h2>
 
@@ -21,38 +21,34 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: idx * 0.1 }}
             viewport={{ once: true }}
-            className="group flex flex-col rounded-2xl border border-white/10 bg-gray-900 p-6 transition-colors hover:border-indigo-500/40"
+            className="glow-border flex flex-col rounded-2xl border border-slate-800 bg-[#0a0f1e] p-6"
           >
-            {/* Title */}
-            <h3 className="text-lg font-semibold text-white">
+            <h3 className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-white">
               {project.title}
             </h3>
 
-            {/* Description */}
-            <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-400">
+            <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-400">
               {project.description}
             </p>
 
-            {/* Tech stack tags */}
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="mt-5 flex flex-wrap gap-2">
               {project.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-full bg-indigo-500/10 px-3 py-1 text-xs font-medium text-indigo-300"
+                  className="rounded-full border border-cyan-500/20 px-3 py-1 text-xs font-medium text-cyan-400"
                 >
                   {tech}
                 </span>
               ))}
             </div>
 
-            {/* Links */}
             <div className="mt-5 flex gap-4 border-t border-white/5 pt-4">
               {project.github && (
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-sm text-gray-400 transition-colors hover:text-white"
+                  className="flex items-center gap-1.5 text-sm text-slate-400 transition-colors hover:text-white"
                 >
                   <FaGithub size={16} />
                   Code
@@ -63,7 +59,7 @@ export default function Projects() {
                   href={project.liveDemo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-sm text-gray-400 transition-colors hover:text-white"
+                  className="flex items-center gap-1.5 text-sm text-slate-400 transition-colors hover:text-cyan-400"
                 >
                   <HiExternalLink size={16} />
                   Live Demo

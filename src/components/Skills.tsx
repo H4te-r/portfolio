@@ -21,17 +21,17 @@ const skillCategories = [
 export default function Skills() {
   return (
     <SectionWrapper id="skills">
-      <h2 className="mb-12 text-center text-3xl font-bold text-white">
+      <h2 className="mb-14 text-center font-[family-name:var(--font-space-grotesk)] text-4xl font-bold text-white">
         Skills
       </h2>
 
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
         {skillCategories.map((group, groupIdx) => (
           <div key={group.category}>
-            <h3 className="mb-4 text-sm font-semibold tracking-widest text-indigo-400 uppercase">
+            <h3 className="mb-5 text-xs font-semibold tracking-[0.2em] text-cyan-400 uppercase">
               {group.category}
             </h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3">
               {group.skills.map((skill, skillIdx) => (
                 <motion.span
                   key={skill}
@@ -42,7 +42,7 @@ export default function Skills() {
                     delay: groupIdx * 0.1 + skillIdx * 0.05,
                   }}
                   viewport={{ once: true }}
-                  className="rounded-full border border-white/10 bg-gray-800 px-4 py-1.5 text-sm text-gray-300"
+                  className="glow-badge cursor-default rounded-full border border-slate-700 px-4 py-2 text-sm text-slate-300"
                 >
                   {skill}
                 </motion.span>

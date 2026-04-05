@@ -5,34 +5,38 @@ import { HiUser } from "react-icons/hi";
 
 export default function About() {
   return (
-    <SectionWrapper id="about">
-      <h2 className="mb-12 text-center text-3xl font-bold text-white">
+    <SectionWrapper id="about" className="section-alt">
+      <h2 className="mb-14 text-center font-[family-name:var(--font-space-grotesk)] text-4xl font-bold text-white">
         About Me
       </h2>
 
-      <div className="flex flex-col items-center gap-10 md:flex-row md:items-start">
-        {/* Photo placeholder — replace the div with an <Image /> when you have a photo */}
-        <div className="flex h-48 w-48 shrink-0 items-center justify-center rounded-2xl bg-gray-800 text-gray-500">
+      <div className="flex flex-col items-center gap-12 md:flex-row md:items-start">
+        {/* Photo placeholder */}
+        <div className="flex h-52 w-52 shrink-0 items-center justify-center rounded-2xl border border-white/5 bg-[#111a2e] text-slate-600">
           <HiUser size={64} />
         </div>
 
-        <div className="max-w-xl text-gray-400 leading-relaxed">
-          <p>
-            I&apos;m an Information Technology student passionate about turning
-            ideas into software that real people use. My thesis project,{" "}
-            <span className="text-white font-medium">Barangay Central</span>, is
-            a full e-government web system that streamlines local government
-            operations — and it taught me everything from database design to
-            deployment.
+        <div className="max-w-xl text-slate-400 leading-relaxed">
+          <p className="text-lg">
+            I&apos;m Jess — an Information Technology student from the
+            Philippines who&apos;d rather build things than just study them.
           </p>
           <p className="mt-4">
-            I work with{" "}
-            <span className="text-white font-medium">
-              Tailwind CSS, JavaScript, and PHP
+            My thesis project,{" "}
+            <span className="font-medium text-white">Barangay Central</span>,
+            is a full e-government web system that handles resident management,
+            document requests, and community services for an actual local
+            government unit. Building it taught me everything from database
+            architecture to deploying software that real people depend on.
+          </p>
+          <p className="mt-4">
+            I work primarily with{" "}
+            <span className="font-medium text-cyan-400">
+              Tailwind CSS, JavaScript, PHP, and MySQL
             </span>
-            , and I&apos;m always exploring new tools and frameworks. I&apos;m
-            currently looking for internship opportunities where I can
-            contribute, learn, and grow as a developer.
+            , and I&apos;m always picking up new tools. Right now I&apos;m
+            looking for internship opportunities where I can ship code, solve
+            problems, and keep growing as a developer.
           </p>
         </div>
       </div>
