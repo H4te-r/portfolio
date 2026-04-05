@@ -25,7 +25,7 @@ export default function Hero() {
           className="text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl"
         >
           Hi, I&apos;m{" "}
-          <span className="text-indigo-400">Rinnah Garcia</span>
+          <span className="text-indigo-400">Jess Patrick R. Paguel</span>
         </motion.h1>
 
         <motion.p

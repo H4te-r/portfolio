@@ -23,7 +23,7 @@ export default function Navbar() {
           href="#hero"
           className="text-lg font-bold tracking-tight text-white"
         >
-          Rinnah<span className="text-indigo-400">.</span>
+          Jess<span className="text-indigo-400">.</span>
         </a>
 
         {/* Desktop links */}

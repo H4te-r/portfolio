@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rinnah Garcia — Portfolio",
+  title: "Jess Patrick R. Paguel — Portfolio",
   description:
     "IT student building real-world solutions. View my projects, skills, and experience.",
 };
