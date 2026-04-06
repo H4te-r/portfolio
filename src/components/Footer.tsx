@@ -10,7 +10,7 @@ export default function Footer() {
         </p>
         <div className="flex gap-5">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/H4te-r"
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-600 transition-colors hover:text-cyan-400"
@@ -19,7 +19,7 @@ export default function Footer() {
             <FaGithub size={20} />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/jess-patrick-paguel-7ab067357"
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-600 transition-colors hover:text-cyan-400"
@@ -28,7 +28,7 @@ export default function Footer() {
             <FaLinkedin size={20} />
           </a>
           <a
-            href="mailto:your@email.com"
+            href="mailto:jess102904@gmail.com"
             className="text-slate-600 transition-colors hover:text-cyan-400"
             aria-label="Email"
           >

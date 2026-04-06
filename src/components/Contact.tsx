@@ -11,9 +11,9 @@ import SectionWrapper from "./SectionWrapper";
 // 3. Create an Email Template with variables: {{from_name}}, {{from_email}}, {{message}}
 // 4. Copy your Service ID, Template ID, and Public Key below
 // ──────────────────────────────────────────────
-const SERVICE_ID = "YOUR_SERVICE_ID";
-const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+const SERVICE_ID = "service_ktw5ahe";
+const TEMPLATE_ID = "template_wxor8br";
+const PUBLIC_KEY = "lye4QUavJ5Jsd6WoJ";
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);

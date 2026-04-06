@@ -13,7 +13,7 @@ export const projects: Project[] = [
     description:
       "A full e-government web system built as a thesis project. Streamlines barangay operations including resident management, document requests, and community services — serving real users in local government.",
     techStack: ["PHP", "JavaScript", "Tailwind CSS", "MySQL"],
-    github: "https://github.com/yourusername/barangay-central",
+    github: "https://github.com/H4te-r/barangay-central",
     liveDemo: "https://barangaycentral.com/public/",
   },
   // Add more projects here:
