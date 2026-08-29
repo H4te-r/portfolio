@@ -34,9 +34,12 @@ export default function About() {
             <span className="font-medium text-cyan-400">
               Tailwind CSS, JavaScript, PHP, and MySQL
             </span>
-            , and I&apos;m always picking up new tools. Right now I&apos;m
-            looking for internship opportunities where I can ship code, solve
-            problems, and keep growing as a developer.
+            , and I&apos;m always picking up new tools. I also hold
+            certifications in Networking, Cybersecurity, and Network Security,
+            and I&apos;m interested in building systems with security best
+            practices in mind. Right now I&apos;m looking for internship
+            opportunities where I can ship code, solve problems, and keep
+            growing as a developer.
           </p>
         </div>
       </div>
