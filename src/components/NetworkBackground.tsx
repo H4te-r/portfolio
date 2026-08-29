@@ -81,9 +81,10 @@ export default function NetworkBackground() {
       const link = styles.getPropertyValue("--link").trim() || "rgba(56,189,248,0.18)";
       const nodeColor = styles.getPropertyValue("--node").trim() || "rgba(6,182,212,0.45)";
       const pulseColor = styles.getPropertyValue("--pulse").trim() || "#22d3ee";
+      const isLight = document.documentElement.classList.contains("light");
 
       ctx.strokeStyle = link;
-      ctx.lineWidth = 1;
+      ctx.lineWidth = isLight ? 1.4 : 1;
       for (const e of edges) {
         ctx.beginPath();
         ctx.moveTo(nodes[e.a].x, nodes[e.a].y);
@@ -94,7 +95,7 @@ export default function NetworkBackground() {
       for (const n of nodes) {
         ctx.beginPath();
         ctx.fillStyle = nodeColor;
-        ctx.arc(n.x, n.y, 2.2, 0, Math.PI * 2);
+        ctx.arc(n.x, n.y, isLight ? 2.8 : 2.2, 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -123,15 +124,15 @@ export default function NetworkBackground() {
 
           ctx.beginPath();
           ctx.fillStyle = pulseColor;
-          ctx.globalAlpha = 0.15 + alpha * 0.55;
-          ctx.arc(x, y, 3.5 + alpha * 2, 0, Math.PI * 2);
+          ctx.globalAlpha = isLight ? 0.3 + alpha * 0.6 : 0.15 + alpha * 0.55;
+          ctx.arc(x, y, (isLight ? 4.5 : 3.5) + alpha * 2, 0, Math.PI * 2);
           ctx.fill();
           ctx.globalAlpha = 1;
 
           ctx.beginPath();
           ctx.strokeStyle = pulseColor;
-          ctx.globalAlpha = 0.25 + alpha * 0.4;
-          ctx.lineWidth = 1.5;
+          ctx.globalAlpha = isLight ? 0.4 + alpha * 0.5 : 0.25 + alpha * 0.4;
+          ctx.lineWidth = isLight ? 2 : 1.5;
           for (let s = 0; s <= i; s++) {
             const p0 = nodes[pulse.path[s]];
             const p1 = nodes[pulse.path[s + 1]];

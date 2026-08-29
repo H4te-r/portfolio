@@ -34,19 +34,19 @@
 
 html.light {
   --bg: #eef2f7;
-  --bg-alt: #e4eaf3;
-  --bg-card: rgba(255, 255, 255, 0.86);
+  --bg-alt: #e0e7f1;
+  --bg-card: rgba(255, 255, 255, 0.92);
   --fg: #0f172a;
-  --muted: #475569;
-  --accent: #0e7490;
-  --accent-hover: #155e75;
-  --accent-glow: rgba(14, 116, 144, 0.22);
-  --border: rgba(15, 23, 42, 0.1);
+  --muted: #334155;
+  --accent: #0c6b83;
+  --accent-hover: #0e4f5f;
+  --accent-glow: rgba(12, 107, 131, 0.32);
+  --border: rgba(15, 23, 42, 0.18);
   --accent-fg: #ffffff;
-  --nav-bg: rgba(238, 242, 247, 0.82);
-  --pulse: #0369a1;
-  --node: rgba(14, 116, 144, 0.4);
-  --link: rgba(14, 116, 144, 0.16);
+  --nav-bg: rgba(238, 242, 247, 0.88);
+  --pulse: #0c6b83;
+  --node: rgba(12, 80, 100, 0.55);
+  --link: rgba(12, 80, 100, 0.22);
 }
 
 html {
