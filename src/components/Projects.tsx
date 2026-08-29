@@ -42,7 +42,18 @@ export default function Projects() {
               ))}
             </div>
 
-            <div className="mt-5 flex gap-4 border-t border-white/5 pt-4">
+            <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/5 pt-4">
+              {project.liveDemo && (
+                <a
+                  href={project.liveDemo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-sm text-slate-400 transition-colors hover:text-cyan-400"
+                >
+                  <HiExternalLink size={16} />
+                  Live Demo
+                </a>
+              )}
               {project.github && (
                 <a
                   href={project.github}
@@ -54,16 +65,8 @@ export default function Projects() {
                   Code
                 </a>
               )}
-              {project.liveDemo && (
-                <a
-                  href={project.liveDemo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-sm text-slate-400 transition-colors hover:text-cyan-400"
-                >
-                  <HiExternalLink size={16} />
-                  Live Demo
-                </a>
+              {project.sourceNote && (
+                <span className="text-sm text-slate-500">{project.sourceNote}</span>
               )}
             </div>
           </motion.div>

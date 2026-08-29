@@ -20,6 +20,7 @@
 /* ── Base ── */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
@@ -43,8 +44,8 @@ body::before {
   background-size: 32px 32px;
 }
 
-/* Keep all content above the dot grid */
-body > * {
+/* Keep page content above the dot grid — exclude the header so sticky/fixed positioning still works */
+body > *:not(header) {
   position: relative;
   z-index: 1;
 }

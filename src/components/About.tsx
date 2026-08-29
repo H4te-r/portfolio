@@ -35,11 +35,12 @@ export default function About() {
               Tailwind CSS, JavaScript, PHP, and MySQL
             </span>
             , and I&apos;m always picking up new tools. I also hold
-            certifications in Networking, Cybersecurity, and Network Security,
-            and I&apos;m interested in building systems with security best
-            practices in mind. Right now I&apos;m looking for internship
-            opportunities where I can ship code, solve problems, and keep
-            growing as a developer.
+            certifications in Networking and Cybersecurity, and I&apos;m
+            currently working toward Network Security (exam around October)
+            before moving on to Cloud Computing. I&apos;m interested in
+            building systems with security best practices in mind. Right now
+            I&apos;m looking for internship opportunities where I can ship
+            code, solve problems, and keep growing as a developer.
           </p>
         </div>
       </div>
