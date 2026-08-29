@@ -1,7 +1,7 @@
 "use client";
 
 import SectionWrapper from "./SectionWrapper";
-import { HiUser } from "react-icons/hi";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -11,9 +11,15 @@ export default function About() {
       </h2>
 
       <div className="flex flex-col items-center gap-12 md:flex-row md:items-start">
-        {/* Photo placeholder */}
-        <div className="flex h-52 w-52 shrink-0 items-center justify-center rounded-2xl border border-white/5 bg-[#111a2e] text-slate-600">
-          <HiUser size={64} />
+        <div className="relative h-52 w-52 shrink-0 overflow-hidden rounded-2xl border border-white/5">
+          <Image
+            src="/jess.jpg"
+            alt="Jess Patrick R. Paguel"
+            fill
+            sizes="208px"
+            className="object-cover"
+            priority
+          />
         </div>
 
         <div className="max-w-xl text-slate-400 leading-relaxed">

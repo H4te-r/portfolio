@@ -6,6 +6,7 @@ import { HiMenu, HiX } from "react-icons/hi";
 
 const navLinks = [
   { label: "About", href: "#about" },
+  { label: "Education", href: "#education" },
   { label: "Skills", href: "#skills" },
   { label: "Certifications", href: "#certifications" },
   { label: "Projects", href: "#projects" },
@@ -39,7 +40,7 @@ export default function Navbar() {
           jess<span className="text-cyan-400">.</span>
         </a>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a

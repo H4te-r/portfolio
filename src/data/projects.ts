@@ -1,3 +1,8 @@
+export interface ProjectScreenshot {
+  src: string;
+  alt: string;
+}
+
 export interface Project {
   title: string;
   description: string;
@@ -5,7 +10,7 @@ export interface Project {
   github?: string;
   liveDemo?: string;
   sourceNote?: string;
-  image?: string;
+  screenshots?: ProjectScreenshot[];
 }
 
 export const projects: Project[] = [
@@ -16,12 +21,32 @@ export const projects: Project[] = [
     techStack: ["PHP", "JavaScript", "Tailwind CSS", "MySQL"],
     liveDemo: "https://barangaycentral.com/public/",
     sourceNote: "Source available upon request",
+    screenshots: [
+      {
+        src: "/projects/barangay-central/home.png",
+        alt: "Barangay Central homepage with hero, services, and resident portal",
+      },
+      {
+        src: "/projects/barangay-central/login.png",
+        alt: "Barangay Central login page",
+      },
+    ],
   },
   {
     title: "KARMÉ — Luxury That Lingers",
     description:
-      "A full e-commerce website built for a real fragrance business, featuring a product catalog, individual product pages, shopping cart functionality, and brand storytelling — built and shipped for an actual client with live sales.",
+      "A full e-commerce website built for a real fragrance startup (my sister's business), currently in its early launch phase — including a product catalog, shopping cart, and brand storytelling pages.",
     techStack: ["React", "Next.js", "Tailwind CSS"],
     liveDemo: "https://karmefragrance.vercel.app/",
+    screenshots: [
+      {
+        src: "/projects/karme/home.png",
+        alt: "KARMÉ homepage hero, Luxury That Lingers",
+      },
+      {
+        src: "/projects/karme/shop.png",
+        alt: "KARMÉ shop page with Our Fragrances collection grid",
+      },
+    ],
   },
 ];

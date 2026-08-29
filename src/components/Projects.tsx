@@ -5,6 +5,7 @@ import { projects } from "@/data/projects";
 import { motion } from "framer-motion";
 import { HiExternalLink } from "react-icons/hi";
 import { FaGithub } from "react-icons/fa";
+import ProjectScreenshots from "./ProjectScreenshots";
 
 export default function Projects() {
   return (
@@ -13,7 +14,7 @@ export default function Projects() {
         Projects
       </h2>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2">
         {projects.map((project, idx) => (
           <motion.div
             key={project.title}
@@ -23,6 +24,12 @@ export default function Projects() {
             viewport={{ once: true }}
             className="glow-border flex flex-col rounded-2xl border border-slate-800 bg-[#0a0f1e] p-6"
           >
+            {project.screenshots && project.screenshots.length > 0 && (
+              <ProjectScreenshots
+                title={project.title}
+                screenshots={project.screenshots}
+              />
+            )}
             <h3 className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-white">
               {project.title}
             </h3>

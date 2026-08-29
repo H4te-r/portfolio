@@ -16,14 +16,21 @@ const skillCategories = [
     category: "Tools",
     skills: ["Git", "GitHub", "VS Code", "Figma", "Vercel"],
   },
+  {
+    category: "Currently Learning",
+    skills: ["Network Security", "Cloud Computing"],
+  },
 ];
 
 export default function Skills() {
   return (
     <SectionWrapper id="skills">
-      <h2 className="mb-14 text-center font-[family-name:var(--font-space-grotesk)] text-4xl font-bold text-white">
+      <h2 className="mb-6 text-center font-[family-name:var(--font-space-grotesk)] text-4xl font-bold text-white">
         Skills
       </h2>
+      <p className="mx-auto mb-14 max-w-2xl text-center text-slate-400">
+        Tools and technologies I use to build and secure real-world systems.
+      </p>
 
       <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
         {skillCategories.map((group, groupIdx) => (
