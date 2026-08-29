@@ -4,6 +4,7 @@ import SectionWrapper from "./SectionWrapper";
 import { skillGroups } from "@/data/skills";
 import { motion } from "framer-motion";
 import Reveal, { SectionIcon } from "./Reveal";
+import { GlowCard } from "./MotionEffects";
 
 export default function Skills() {
   return (
@@ -21,6 +22,7 @@ export default function Skills() {
       <div className="grid gap-10 lg:grid-cols-3">
         {skillGroups.map((group, groupIdx) => (
           <Reveal key={group.category} type="scale" delay={groupIdx * 0.08}>
+            <GlowCard className="h-full">
             <div className="theme-surface glow-border h-full rounded-2xl border border-border p-6">
               <h3 className="mb-6 text-xs font-semibold tracking-[0.2em] text-accent uppercase">
                 {group.category}
@@ -54,6 +56,7 @@ export default function Skills() {
                 ))}
               </div>
             </div>
+            </GlowCard>
           </Reveal>
         ))}
       </div>

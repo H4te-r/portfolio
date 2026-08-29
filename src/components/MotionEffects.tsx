@@ -3,6 +3,7 @@
 import {
   useRef,
   useState,
+  useCallback,
   type MouseEvent,
   type ReactNode,
   type CSSProperties,
@@ -54,6 +55,32 @@ export function Magnetic({
   );
 }
 
+/* ── Shared glow-follow overlay ───────────────────────── */
+
+function useGlow() {
+  const glowRef = useRef<HTMLDivElement>(null);
+
+  const onMove = useCallback((e: MouseEvent) => {
+    const el = glowRef.current;
+    if (!el) return;
+    const parent = el.parentElement;
+    if (!parent) return;
+    const rect = parent.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    el.style.opacity = "1";
+    el.style.background = `radial-gradient(280px circle at ${x}px ${y}px, var(--accent-glow), transparent 70%)`;
+  }, []);
+
+  const onLeave = useCallback(() => {
+    const el = glowRef.current;
+    if (!el) return;
+    el.style.opacity = "0";
+  }, []);
+
+  return { glowRef, onMove, onLeave };
+}
+
 export function TiltCard({
   children,
   className = "",
@@ -65,6 +92,7 @@ export function TiltCard({
   const [style, setStyle] = useState<CSSProperties>({
     transform: "perspective(900px) rotateX(0deg) rotateY(0deg)",
   });
+  const { glowRef, onMove: glowMove, onLeave: glowLeave } = useGlow();
 
   const onMove = (e: MouseEvent) => {
     const el = ref.current;
@@ -78,24 +106,58 @@ export function TiltCard({
       transform: `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
       transition: "transform 60ms linear",
     });
+    glowMove(e);
   };
 
-  const onLeave = () => {
+  const onLeave = (e: MouseEvent) => {
     setStyle({
       transform: "perspective(900px) rotateX(0deg) rotateY(0deg)",
       transition: "transform 350ms cubic-bezier(0.22, 1, 0.36, 1)",
     });
+    glowLeave();
   };
 
   return (
     <div
       ref={ref}
-      className={className}
+      className={`relative ${className}`}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       style={style}
     >
       {children}
+      <div
+        ref={glowRef}
+        className="pointer-events-none absolute inset-0 z-10 rounded-2xl opacity-0 transition-opacity duration-300"
+        aria-hidden
+      />
+    </div>
+  );
+}
+
+export function GlowCard({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { glowRef, onMove, onLeave } = useGlow();
+
+  return (
+    <div
+      ref={ref}
+      className={`relative ${className}`}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+    >
+      {children}
+      <div
+        ref={glowRef}
+        className="pointer-events-none absolute inset-0 z-10 rounded-2xl opacity-0 transition-opacity duration-300"
+        aria-hidden
+      />
     </div>
   );
 }

@@ -73,7 +73,7 @@ footer,
     box-shadow 250ms ease;
 }
 
-body > *:not(header) {
+body > *:not(header):not(canvas) {
   position: relative;
   z-index: 1;
 }
@@ -110,10 +110,7 @@ body > *:not(header) {
   box-shadow: 0 0 12px var(--accent-glow);
 }
 
-html.has-custom-cursor,
-html.has-custom-cursor * {
-  cursor: none !important;
-}
+
 
 ::-webkit-scrollbar {
   width: 6px;

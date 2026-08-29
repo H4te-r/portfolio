@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import SectionWrapper from "./SectionWrapper";
-import { TiltCard } from "./MotionEffects";
+import { GlowCard } from "./MotionEffects";
 import Reveal, { SectionIcon } from "./Reveal";
 
 const certifications = [
@@ -42,7 +42,7 @@ export default function Certifications() {
           const isFlipped = flipped === cert.name;
           return (
             <Reveal key={cert.name} type="scale" delay={idx * 0.1}>
-              <TiltCard className="h-full w-full">
+              <GlowCard className="h-full w-full">
                 <button
                   type="button"
                   data-cursor="View"
@@ -81,7 +81,7 @@ export default function Certifications() {
                     </div>
                   </div>
                 </button>
-              </TiltCard>
+              </GlowCard>
             </Reveal>
           );
         })}

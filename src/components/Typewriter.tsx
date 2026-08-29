@@ -1,22 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const lines = [
-  "Hi, I'm Jes.",
+  "Hi, I'm Jess.",
   "IT Student.",
-  "Aspiring Security Analyst.",
+  "Still Debugging Life.",
 ];
 
 export default function Typewriter() {
   const [lineIndex, setLineIndex] = useState(0);
-  const [text, setText] = useState("");
+  const [charIndex, setCharIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
+  const rafRef = useRef<number>(0);
 
   useEffect(() => {
     const current = lines[lineIndex];
-    const atEnd = !deleting && text === current;
-    const atStart = deleting && text === "";
+    const atEnd = !deleting && charIndex === current.length;
+    const atStart = deleting && charIndex === 0;
 
     let delay = deleting ? 38 : 78;
     if (atEnd) delay = 1400;
@@ -30,14 +31,16 @@ export default function Typewriter() {
       if (atStart) {
         setDeleting(false);
         setLineIndex((i) => (i + 1) % lines.length);
+        setCharIndex(0);
         return;
       }
-      const nextLen = text.length + (deleting ? -1 : 1);
-      setText(current.slice(0, nextLen));
+      setCharIndex((c) => c + (deleting ? -1 : 1));
     }, delay);
 
     return () => window.clearTimeout(id);
-  }, [text, deleting, lineIndex]);
+  }, [charIndex, deleting, lineIndex]);
+
+  const text = lines[lineIndex].slice(0, charIndex);
 
   return (
     <span className="inline-block min-h-[1.15em]">

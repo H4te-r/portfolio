@@ -3,7 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import NetworkBackground from "@/components/NetworkBackground";
-import CustomCursor from "@/components/CustomCursor";
+
 import ScrollProgress from "@/components/ScrollProgress";
 import "./globals.css";
 
@@ -53,7 +53,7 @@ export default function RootLayout({
         <ThemeProvider>
           <ScrollProgress />
           <NetworkBackground />
-          <CustomCursor />
+
           <Navbar />
           {children}
         </ThemeProvider>
