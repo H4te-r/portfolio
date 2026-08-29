@@ -16,7 +16,7 @@ export default function Resume() {
         </p>
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
-            href="/Jess_Paguel_Resume.docx"
+            href="/Jess_Paguel_Resume.pdf"
             download
             className="inline-flex items-center gap-2 rounded-full bg-cyan-500 px-8 py-3 text-sm font-semibold text-[#0a0f1e] transition-all hover:bg-cyan-400 hover:shadow-lg hover:shadow-cyan-500/25"
           >
@@ -24,7 +24,7 @@ export default function Resume() {
             Download Resume
           </a>
           <a
-            href="/Jess_Paguel_CV.docx"
+            href="/Jess_Paguel_CV.pdf"
             download
             className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-8 py-3 text-sm font-medium text-slate-300 transition-all hover:border-cyan-500/50 hover:text-white"
           >
