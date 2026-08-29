@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 interface Props {
   id: string;
@@ -11,15 +10,8 @@ interface Props {
 
 export default function SectionWrapper({ id, children, className = "" }: Props) {
   return (
-    <motion.section
-      id={id}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      viewport={{ once: true, amount: 0.15 }}
-      className={`px-6 py-24 md:py-32 ${className}`}
-    >
+    <section id={id} className={`relative px-6 py-24 md:py-32 ${className}`}>
       <div className="mx-auto max-w-6xl">{children}</div>
-    </motion.section>
+    </section>
   );
 }

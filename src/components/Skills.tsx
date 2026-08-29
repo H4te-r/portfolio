@@ -1,61 +1,60 @@
 "use client";
 
 import SectionWrapper from "./SectionWrapper";
+import { skillGroups } from "@/data/skills";
 import { motion } from "framer-motion";
-
-const skillCategories = [
-  {
-    category: "Frontend",
-    skills: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "React", "Next.js"],
-  },
-  {
-    category: "Backend",
-    skills: ["PHP", "MySQL", "REST APIs"],
-  },
-  {
-    category: "Tools",
-    skills: ["Git", "GitHub", "VS Code", "Figma", "Vercel"],
-  },
-  {
-    category: "Currently Learning",
-    skills: ["Network Security", "Cloud Computing"],
-  },
-];
+import Reveal, { SectionIcon } from "./Reveal";
 
 export default function Skills() {
   return (
     <SectionWrapper id="skills">
-      <h2 className="mb-6 text-center font-[family-name:var(--font-space-grotesk)] text-4xl font-bold text-white">
-        Skills
-      </h2>
-      <p className="mx-auto mb-14 max-w-2xl text-center text-slate-400">
-        Tools and technologies I use to build and secure real-world systems.
-      </p>
+      <SectionIcon />
+      <Reveal type="up">
+        <h2 className="mb-6 text-center font-[family-name:var(--font-space-grotesk)] text-4xl font-bold text-foreground">
+          Skills
+        </h2>
+        <p className="mx-auto mb-14 max-w-2xl text-center text-muted">
+          Tools and technologies I use to build and secure real-world systems.
+        </p>
+      </Reveal>
 
-      <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-        {skillCategories.map((group, groupIdx) => (
-          <div key={group.category}>
-            <h3 className="mb-5 text-xs font-semibold tracking-[0.2em] text-cyan-400 uppercase">
-              {group.category}
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {group.skills.map((skill, skillIdx) => (
-                <motion.span
-                  key={skill}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: 0.3,
-                    delay: groupIdx * 0.1 + skillIdx * 0.05,
-                  }}
-                  viewport={{ once: true }}
-                  className="glow-badge cursor-default rounded-full border border-slate-700 px-4 py-2 text-sm text-slate-300"
-                >
-                  {skill}
-                </motion.span>
-              ))}
+      <div className="grid gap-10 lg:grid-cols-3">
+        {skillGroups.map((group, groupIdx) => (
+          <Reveal key={group.category} type="scale" delay={groupIdx * 0.08}>
+            <div className="theme-surface glow-border h-full rounded-2xl border border-border p-6">
+              <h3 className="mb-6 text-xs font-semibold tracking-[0.2em] text-accent uppercase">
+                {group.category}
+              </h3>
+              <div className="space-y-4">
+                {group.skills.map((skill, skillIdx) => (
+                  <div key={skill.name} className="group relative">
+                    <div className="mb-1.5 flex items-center justify-between text-sm">
+                      <span className="text-foreground">{skill.name}</span>
+                      <span className="text-muted">{skill.percent}%</span>
+                    </div>
+                    <div className="h-2 overflow-hidden rounded-full bg-border">
+                      <motion.div
+                        className="h-full rounded-full bg-accent"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.percent}%` }}
+                        transition={{
+                          duration: 0.8,
+                          delay: groupIdx * 0.08 + skillIdx * 0.04,
+                          ease: "easeOut",
+                        }}
+                        viewport={{ once: true }}
+                      />
+                    </div>
+                    {skill.tooltip && (
+                      <div className="pointer-events-none absolute -top-9 left-0 z-10 hidden rounded-md border border-border bg-background-card px-2.5 py-1 text-xs text-muted shadow-lg group-hover:block">
+                        {skill.tooltip}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          </Reveal>
         ))}
       </div>
     </SectionWrapper>

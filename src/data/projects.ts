@@ -3,6 +3,12 @@ export interface ProjectScreenshot {
   alt: string;
 }
 
+export interface ProjectCaseStudy {
+  problem: string;
+  built: string;
+  outcome: string;
+}
+
 export interface Project {
   title: string;
   description: string;
@@ -11,6 +17,7 @@ export interface Project {
   liveDemo?: string;
   sourceNote?: string;
   screenshots?: ProjectScreenshot[];
+  caseStudy: ProjectCaseStudy;
 }
 
 export const projects: Project[] = [
@@ -31,6 +38,14 @@ export const projects: Project[] = [
         alt: "Barangay Central login page",
       },
     ],
+    caseStudy: {
+      problem:
+        "Local barangay operations needed a clearer way to handle resident management, document requests, and community services without relying on fragmented paper workflows.",
+      built:
+        "A full e-government web system (thesis project) covering resident records, document requests, and community services, with attention to input validation and secure authentication.",
+      outcome:
+        "Deployed for real users in a local government unit — software people depend on day to day.",
+    },
   },
   {
     title: "KARMÉ — Luxury That Lingers",
@@ -48,5 +63,13 @@ export const projects: Project[] = [
         alt: "KARMÉ shop page with Our Fragrances collection grid",
       },
     ],
+    caseStudy: {
+      problem:
+        "A fragrance startup needed an online storefront that could present the brand, catalog products, and support shopping cart flows before public launch.",
+      built:
+        "A full e-commerce website with a product catalog, shopping cart, and brand storytelling pages — built for my sister's business.",
+      outcome:
+        "Site is live in an early launch phase and ready for the business to grow into.",
+    },
   },
 ];

@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import SectionWrapper from "./SectionWrapper";
-import { motion } from "framer-motion";
+import { TiltCard } from "./MotionEffects";
+import Reveal, { SectionIcon } from "./Reveal";
 
 const certifications = [
   {
@@ -11,6 +13,7 @@ const certifications = [
     description:
       "Covers core networking concepts, infrastructure, and protocols",
     image: "/certs/networking.jpeg",
+    issueNote: "Issued by Certiport",
   },
   {
     name: "Cybersecurity",
@@ -18,69 +21,84 @@ const certifications = [
     description:
       "Covers foundational security principles, threat identification, and protection practices",
     image: "/certs/cybersecurity.jpeg",
+    issueNote: "Issued by Certiport",
   },
 ];
 
 export default function Certifications() {
+  const [flipped, setFlipped] = useState<string | null>(null);
+
   return (
     <SectionWrapper id="certifications">
-      <h2 className="mb-14 text-center font-[family-name:var(--font-space-grotesk)] text-4xl font-bold text-white">
-        Certifications
-      </h2>
+      <SectionIcon />
+      <Reveal type="up">
+        <h2 className="mb-14 text-center font-[family-name:var(--font-space-grotesk)] text-4xl font-bold text-foreground">
+          Certifications
+        </h2>
+      </Reveal>
 
       <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2">
-        {certifications.map((cert, idx) => (
-          <motion.div
-            key={cert.name}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: idx * 0.1 }}
-            viewport={{ once: true }}
-            className="glow-border flex flex-col rounded-2xl border border-slate-800 bg-[#0a0f1e] p-6"
-          >
-            <a
-              href={cert.image}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative mb-4 block aspect-[4/3] overflow-hidden rounded-xl border border-slate-800 bg-[#111a2e]"
-            >
-              <Image
-                src={cert.image}
-                alt={`${cert.name} certificate from ${cert.issuer}`}
-                fill
-                sizes="(max-width: 640px) 100vw, 50vw"
-                className="object-contain p-2"
-              />
-            </a>
-            <h3 className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-white">
-              {cert.name}
-            </h3>
-            <span className="glow-badge mt-3 w-fit cursor-default rounded-full border border-slate-700 px-4 py-1.5 text-xs text-slate-300">
-              {cert.issuer}
-            </span>
-            <p className="mt-4 text-sm leading-relaxed text-slate-400">
-              {cert.description}
-            </p>
-          </motion.div>
-        ))}
+        {certifications.map((cert, idx) => {
+          const isFlipped = flipped === cert.name;
+          return (
+            <Reveal key={cert.name} type="scale" delay={idx * 0.1}>
+              <TiltCard className="h-full w-full">
+                <button
+                  type="button"
+                  data-cursor="View"
+                  onClick={() =>
+                    setFlipped(isFlipped ? null : cert.name)
+                  }
+                  className={`cert-flip h-72 w-full text-left ${isFlipped ? "flipped" : ""}`}
+                  aria-label={`${cert.name} certificate details`}
+                >
+                  <div className="cert-flip-inner h-full">
+                    <div className="cert-face theme-surface glow-border flex h-full flex-col items-center justify-center rounded-2xl border border-border p-6">
+                      <div className="relative mb-4 h-28 w-full overflow-hidden rounded-xl border border-border bg-background-card">
+                        <Image
+                          src={cert.image}
+                          alt={`${cert.name} certificate from ${cert.issuer}`}
+                          fill
+                          sizes="(max-width: 640px) 100vw, 50vw"
+                          className="object-contain p-2"
+                        />
+                      </div>
+                      <h3 className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-foreground">
+                        {cert.name}
+                      </h3>
+                      <span className="glow-badge mt-3 rounded-full border border-border px-4 py-1.5 text-xs text-muted">
+                        {cert.issuer}
+                      </span>
+                    </div>
+                    <div className="cert-face cert-back theme-surface glow-border flex h-full flex-col justify-center rounded-2xl border border-border p-6">
+                      <h3 className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-foreground">
+                        {cert.name}
+                      </h3>
+                      <p className="mt-2 text-sm text-accent">{cert.issueNote}</p>
+                      <p className="mt-4 text-sm leading-relaxed text-muted">
+                        {cert.description}
+                      </p>
+                    </div>
+                  </div>
+                </button>
+              </TiltCard>
+            </Reveal>
+          );
+        })}
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.2 }}
-        viewport={{ once: true }}
-        className="mx-auto mt-8 max-w-4xl rounded-2xl border border-dashed border-cyan-500/30 bg-[#0a0f1e] p-6 text-center"
-      >
-        <p className="text-sm text-slate-400">
-          Currently pursuing:{" "}
-          <span className="font-medium text-cyan-400">Network Security</span>
-          <span className="text-slate-500"> · Certiport</span>
-        </p>
-        <p className="mt-2 text-sm text-slate-500">
-          Exam around October (midterms). Next up: Cloud Computing.
-        </p>
-      </motion.div>
+      <Reveal type="up" delay={0.15}>
+        <div className="theme-surface mx-auto mt-8 max-w-4xl rounded-2xl border border-dashed border-accent/30 bg-background-card p-6 text-center">
+          <p className="text-sm text-muted">
+            Currently pursuing:{" "}
+            <span className="font-medium text-accent">Network Security</span>
+            <span className="text-muted"> · Certiport</span>
+          </p>
+          <p className="mt-2 text-sm text-muted">
+            Exam around October (midterms). Next up: Cloud Computing.
+          </p>
+        </div>
+      </Reveal>
     </SectionWrapper>
   );
 }

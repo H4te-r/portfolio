@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import NetworkBackground from "@/components/NetworkBackground";
+import CustomCursor from "@/components/CustomCursor";
+import ScrollProgress from "@/components/ScrollProgress";
 import "./globals.css";
 
 const inter = Inter({
@@ -19,6 +23,18 @@ export const metadata: Metadata = {
     "IT student from the Philippines building real-world software. View my projects, skills, and experience.",
 };
 
+const themeInit = `
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (t === 'light') document.documentElement.classList.add('light');
+    else document.documentElement.classList.add('dark');
+  } catch (e) {
+    document.documentElement.classList.add('dark');
+  }
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,10 +44,19 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full">
-        <Navbar />
-        {children}
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+      </head>
+      <body className="min-h-full bg-background text-foreground">
+        <ThemeProvider>
+          <ScrollProgress />
+          <NetworkBackground />
+          <CustomCursor />
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
