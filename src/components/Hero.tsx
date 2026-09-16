@@ -33,9 +33,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.15 }}
           className="font-[family-name:var(--font-space-grotesk)] text-4xl font-bold leading-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          <span className="bg-gradient-to-r from-accent to-blue-500 bg-clip-text text-transparent">
-            <Typewriter />
-          </span>
+          <Typewriter />
         </motion.h1>
 
         <motion.p

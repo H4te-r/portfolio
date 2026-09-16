@@ -41,29 +41,36 @@ export default function ProjectScreenshots({
 
   return (
     <>
-      <button
-        type="button"
-        onClick={() => setOpenIndex(0)}
-        className="relative mb-4 block aspect-[16/10] w-full overflow-hidden rounded-xl border border-border bg-background-card text-left"
-        aria-label={`View ${title} screenshots`}
-      >
-        <Image
-          src={cover.src}
-          alt={cover.alt}
-          fill
-          sizes="(max-width: 640px) 100vw, 50vw"
-          className="object-cover object-top"
-        />
-      </button>
-      {extras.length > 0 && (
+      <div className="flex h-full flex-col">
+        {/* Padded screenshot area */}
         <button
           type="button"
-          onClick={() => setOpenIndex(1)}
-          className="mb-4 text-xs text-muted transition-colors hover:text-accent"
+          onClick={() => setOpenIndex(0)}
+          className="flex flex-1 items-center justify-center bg-gradient-to-br from-accent/[0.03] to-background-card p-5 text-left"
+          aria-label={`View ${title} screenshots`}
         >
-          View more screenshots
+          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg border border-border/40 shadow-lg">
+            <Image
+              src={cover.src}
+              alt={cover.alt}
+              fill
+              sizes="(max-width: 640px) 100vw, 50vw"
+              className="object-contain"
+            />
+          </div>
         </button>
-      )}
+
+        {/* View more link pinned to bottom */}
+        {extras.length > 0 && (
+          <button
+            type="button"
+            onClick={() => setOpenIndex(1)}
+            className="border-t border-border/30 py-2.5 text-center text-xs text-muted transition-colors hover:text-accent"
+          >
+            View more screenshots
+          </button>
+        )}
+      </div>
 
       {active && openIndex !== null && (
         <div

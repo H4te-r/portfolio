@@ -44,7 +44,9 @@ export default function Typewriter() {
 
   return (
     <span className="inline-block min-h-[1.15em]">
-      {text}
+      <span className="bg-gradient-to-r from-accent to-blue-500 bg-clip-text text-transparent">
+        {text}
+      </span>
       <span className="ml-0.5 inline-block w-[0.08em] animate-pulse bg-accent align-middle">
         &nbsp;
       </span>

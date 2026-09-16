@@ -53,7 +53,7 @@ export default function Certifications() {
         </h2>
       </Reveal>
 
-      <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2">
+      <div className="mx-auto grid max-w-6xl gap-6" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))" }}>
         {certifications.map((cert, idx) => (
           <Reveal key={cert.name} type="scale" delay={idx * 0.1}>
             <GlowCard className="h-full w-full">
@@ -88,7 +88,7 @@ export default function Certifications() {
       </div>
 
       <Reveal type="up" delay={0.15}>
-        <div className="theme-surface mx-auto mt-8 max-w-4xl rounded-2xl border border-dashed border-accent/30 bg-background-card p-6 text-center">
+        <div className="theme-surface mx-auto mt-8 max-w-6xl rounded-2xl border border-dashed border-accent/30 bg-background-card p-6 text-center">
           <p className="text-sm text-muted">
             Currently pursuing:{" "}
             <span className="font-medium text-accent">Network Security</span>

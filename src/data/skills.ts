@@ -36,6 +36,10 @@ export const skillGroups: SkillGroup[] = [
       { name: "VS Code", percent: 90 },
       { name: "Figma", percent: 62 },
       { name: "Vercel", percent: 80, tooltip: "KARMÉ (web/hosting)" },
+      { name: "Docker", percent: 55, tooltip: "Homelab (Coolify/Traefik)" },
+      { name: "Proxmox VE", percent: 60, tooltip: "Homelab hypervisor" },
+      { name: "Traefik", percent: 45, tooltip: "Homelab reverse proxy" },
+      { name: "Cloudflare", percent: 50, tooltip: "Homelab tunnel & DNS" },
     ],
   },
   {
@@ -60,6 +64,16 @@ export const skillGroups: SkillGroup[] = [
         name: "Cloud Computing",
         percent: 40,
         tooltip: "Learning / Certified via Certiport",
+      },
+      {
+        name: "Linux Administration",
+        percent: 60,
+        tooltip: "Homelab (Debian/Ubuntu, systemd, apt)",
+      },
+      {
+        name: "Virtualization & Containers",
+        percent: 55,
+        tooltip: "Proxmox, LXC, VMs, Docker",
       },
     ],
   },

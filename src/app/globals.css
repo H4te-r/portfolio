@@ -166,3 +166,11 @@ body > *:not(header):not(canvas) {
   }
 }
 
+/* ── Project carousel card ───────────────────────────── */
+
+.carousel-card {
+  transition:
+    box-shadow 250ms ease,
+    background-color 250ms ease;
+}
+
