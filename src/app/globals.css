@@ -73,7 +73,7 @@ footer,
     box-shadow 250ms ease;
 }
 
-body > *:not(header):not(canvas) {
+body>*:not(header):not(canvas) {
   position: relative;
   z-index: 1;
 }
@@ -91,6 +91,7 @@ body > *:not(header):not(canvas) {
     transform 0.2s ease,
     background-color 250ms ease;
 }
+
 .glow-border:hover {
   border-color: var(--accent);
   box-shadow:
@@ -104,6 +105,7 @@ body > *:not(header):not(canvas) {
     border-color 0.3s ease,
     color 0.3s ease;
 }
+
 .glow-badge:hover {
   border-color: var(--accent);
   color: var(--accent);
@@ -115,9 +117,11 @@ body > *:not(header):not(canvas) {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg);
 }
+
 ::-webkit-scrollbar-thumb {
   background: color-mix(in srgb, var(--muted) 45%, transparent);
   border-radius: 3px;
@@ -126,29 +130,35 @@ body > *:not(header):not(canvas) {
 .cert-flip {
   perspective: 1000px;
 }
+
 .cert-flip-inner {
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.55s ease;
 }
+
 .cert-flip.flipped .cert-flip-inner,
 .cert-flip:hover .cert-flip-inner {
   transform: rotateY(180deg);
 }
+
 @media (hover: none) {
   .cert-flip:hover .cert-flip-inner {
     transform: none;
   }
+
   .cert-flip.flipped .cert-flip-inner {
     transform: rotateY(180deg);
   }
 }
+
 .cert-face {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   height: 100%;
   width: 100%;
 }
+
 .cert-back {
   position: absolute;
   inset: 0;
@@ -160,17 +170,17 @@ body > *:not(header):not(canvas) {
     opacity: 0;
     transform: scale(0.92) translateY(16px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
   }
 }
 
-/* ── Project carousel card ───────────────────────────── */
+/* ── Project carousel cards ───────────────────────────── */
 
 .carousel-card {
   transition:
     box-shadow 250ms ease,
     background-color 250ms ease;
 }
-
