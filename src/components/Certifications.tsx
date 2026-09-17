@@ -23,6 +23,14 @@ const certifications = [
     image: "/certs/cybersecurity.jpeg",
     issueNote: "Issued by Certiport",
   },
+  {
+    name: "AI for Good Workshop",
+    issuer: "AI Singapore",
+    description:
+      "Completed the AISG AI for Good Workshop covering responsible AI practices, supported by Meta",
+    image: "/certs/ai-for-good.jpg",
+    issueNote: "Issued by AI Singapore · Supported by Meta · April 2025",
+  },
 ];
 
 export default function Certifications() {
