@@ -21,6 +21,13 @@ export const metadata: Metadata = {
   title: "Jess Patrick R. Paguel — Portfolio",
   description:
     "IT student from the Philippines building real-world software. View my projects, skills, and experience.",
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 const themeInit = `
