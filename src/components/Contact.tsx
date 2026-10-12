@@ -1,17 +1,13 @@
 "use client";
 
 import { useRef, useState, FormEvent } from "react";
-import emailjs from "@emailjs/browser";
 import SectionWrapper from "./SectionWrapper";
 import Reveal, { SectionIcon } from "./Reveal";
 import { Magnetic } from "./MotionEffects";
 
-const SERVICE_ID =
-  process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_ktw5ahe";
-const TEMPLATE_ID =
-  process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_wxor8br";
-const PUBLIC_KEY =
-  process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "lye4QUavJ5Jsd6WoJ";
+const ACCESS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
+  "2f8b96f7-ff8c-489a-a83a-9f567ad7161a";
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -25,11 +21,25 @@ export default function Contact() {
 
     setStatus("sending");
     try {
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY);
-      setStatus("sent");
-      formRef.current.reset();
+      const formData = new FormData(formRef.current);
+      formData.append("access_key", ACCESS_KEY);
+      formData.append("subject", "New Message from Portfolio Website");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setStatus("sent");
+        formRef.current.reset();
+      } else {
+        console.error("Web3Forms submission failed:", data);
+        setStatus("error");
+      }
     } catch (error) {
-      console.error("EmailJS send failed:", error);
+      console.error("Web3Forms error:", error);
       setStatus("error");
     }
   };
@@ -55,14 +65,14 @@ export default function Contact() {
         >
           <input
             type="text"
-            name="from_name"
+            name="name"
             required
             placeholder="Your Name"
             className="rounded-xl border border-border bg-background px-4 py-3.5 text-sm text-foreground placeholder:text-muted/60 outline-none transition-colors focus:border-accent"
           />
           <input
             type="email"
-            name="from_email"
+            name="email"
             required
             placeholder="Your Email"
             className="rounded-xl border border-border bg-background px-4 py-3.5 text-sm text-foreground placeholder:text-muted/60 outline-none transition-colors focus:border-accent"
