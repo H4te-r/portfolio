@@ -6,9 +6,12 @@ import SectionWrapper from "./SectionWrapper";
 import Reveal, { SectionIcon } from "./Reveal";
 import { Magnetic } from "./MotionEffects";
 
-const SERVICE_ID = "service_ktw5ahe";
-const TEMPLATE_ID = "template_wxor8br";
-const PUBLIC_KEY = "lye4QUavJ5Jsd6WoJ";
+const SERVICE_ID =
+  process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_ktw5ahe";
+const TEMPLATE_ID =
+  process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_wxor8br";
+const PUBLIC_KEY =
+  process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "lye4QUavJ5Jsd6WoJ";
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -25,7 +28,8 @@ export default function Contact() {
       await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY);
       setStatus("sent");
       formRef.current.reset();
-    } catch {
+    } catch (error) {
+      console.error("EmailJS send failed:", error);
       setStatus("error");
     }
   };
@@ -88,7 +92,14 @@ export default function Contact() {
           )}
           {status === "error" && (
             <p className="text-center text-sm text-red-500">
-              Something went wrong. Please try again or reach out directly.
+              Something went wrong. Please try again or reach out directly at{" "}
+              <a
+                href="mailto:jess102904@gmail.com"
+                className="underline hover:text-accent transition-colors"
+              >
+                jess102904@gmail.com
+              </a>
+              .
             </p>
           )}
         </form>
