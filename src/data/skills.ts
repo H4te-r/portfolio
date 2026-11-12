@@ -20,7 +20,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "Python", percent: 78, tooltip: "Learning / Certified via Certiport" },
       { name: "Java", percent: 45, tooltip: "Learning / Certified via Certiport" },
       { name: "C#", percent: 42, tooltip: "Learning / Certified via Certiport" },
-      { name: "C++", percent: 65, tooltip: "Learning / Certified via Certiport" },
+      { name: "C++", percent: 65, tooltip: "Certified via CodeChum" },
     ],
   },
   {

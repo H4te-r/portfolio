@@ -112,6 +112,27 @@ body>*:not(header):not(canvas) {
   box-shadow: 0 0 12px var(--accent-glow);
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.cert-card-item {
+  width: calc((100% - 16px) / 1.17);
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+  .cert-card-item {
+    width: calc((100% - 40px) / 2.17);
+  }
+}
+
 
 
 ::-webkit-scrollbar {
