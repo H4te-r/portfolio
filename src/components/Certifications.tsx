@@ -95,19 +95,6 @@ export default function Certifications() {
         ))}
       </div>
 
-      <Reveal type="up" delay={0.15}>
-        <div className="theme-surface mx-auto mt-8 max-w-6xl rounded-2xl border border-dashed border-accent/30 bg-background-card p-6 text-center">
-          <p className="text-sm text-muted">
-            Currently pursuing:{" "}
-            <span className="font-medium text-accent">Network Security</span>
-            <span className="text-muted"> · Certiport</span>
-          </p>
-          <p className="mt-2 text-sm text-muted">
-            Exam around October (midterms). Next up: Cloud Computing.
-          </p>
-        </div>
-      </Reveal>
-
       {/* ── Lightbox modal ── */}
       {activeCert && (
         <div
